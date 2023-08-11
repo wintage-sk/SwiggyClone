@@ -14,6 +14,7 @@ import appStore from "../utils/appStore";
 import Cart from "./Cart";
 import Footer from "./Footer";
 import Help from "./Help"
+import LoginPage from "./LoginPage";
 
 const Grocery = lazy(() => import("./Grocery"));
 // const Help=lazy(() => import("./Help"));
@@ -78,6 +79,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/help",
         element: <Help />
+      },
+      {
+        path: "/loginpage",
+        element: <LoginPage />,
       },
 
     ],

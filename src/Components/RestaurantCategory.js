@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
-import ListItem from './ListItem'
+import ListItem from './ListItem';
+
+
 const RestaurantCategory = ({data, showItems, setShowIndex}) => {
  
   const[isVisible,setIsVisible]=useState(false);
@@ -10,15 +12,20 @@ const RestaurantCategory = ({data, showItems, setShowIndex}) => {
     }
    
   return (
-    <div className="w-6/12 mx-auto my-4 bg-gray-50 shadow-lg p-4">
-        <div
-          className="flex justify-between cursor-pointer" onClick={handleClick}>
-       <span className="font-bold text-lg">
+    <div  className="w-6/12 p-5">
+    <div className="flex  justify-between" onClick={handleClick} >
+        <h3
+         className="font-bold text-lg cursor-pointer">
             {data.title} ({data.itemCards.length})
-          </span>
-          <span>⬇️</span>
+          </h3>
+          {isVisible ? (
+          <span onClick={handleClick} className="cursor-pointer">⬆️</span>
+        ) : (
+          <span onClick={handleClick} className="cursor-pointer">⬇️</span>
+        )}
     </div>
-    {isVisible&&showItems && <ListItem items={data?.itemCards}/>}
+    {isVisible&&showItems && <div> {data.itemCards.map((item)=> (<ListItem key ={item.id} items={item.card.info }/>))}</div>
+}
     
     </div>
   )

@@ -17,7 +17,7 @@ const Help = () => {
   return (
     <div className="container">
       <div className="card-container">
-      <h1 className="card-container-title pb-5"></h1>
+      <h1 className="card-container-title pb-5">Help</h1>
     {question.map((question) => {return(
         <useSection key={question?.id} id={question?.id} title={question?.title} description={question?.description}
         isVisible={visibleSection === question?.id }

@@ -13,7 +13,7 @@ const Heading = () => {
   const onlineStatus = useOnlineStatus();
  const{loggedInUser}=useContext(userContext)
 
- const cartItems=useSelector((store)=>store.cart.items)
+ const totalItemsCount = useSelector((store) => store.cart.totalItemsCount);
   return (
     <div className="flex justify-between bg-yellow-50 shadow-lg sm:bg-green-50 lg:bg-pink-100 ">
       <div>
@@ -36,7 +36,15 @@ const Heading = () => {
             <Link to={"/grocery"}>Grocery</Link>
           </li>
           <li className="p-4">
-            <Link to={"/cart"}>Cart-{cartItems.length} items</Link>
+            <Link to={"/cart"}>{" "}
+              <button className="nav--btn">
+                {" "}
+                Cart{" "}
+                <span className="text-orange font-bold pl-1">
+                  {totalItemsCount}
+                </span>{" "}
+              </button>{" "}
+              </Link>
            
           </li>
           <button
@@ -49,6 +57,8 @@ const Heading = () => {
           >
             {buttonName}
           </button>
+          {/* <li className="p-4">
+            <Link to={"/loginpage"}>Login</Link></li> */}
           <li className="p-4">
             <Link to={"/help"}>Help</Link>
           </li>

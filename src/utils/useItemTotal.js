@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import React from "react";
 
-function useItemTotal() {
+const useItemTotal=()=> {
   const cartItems = useSelector((store) => store.cart.items);
 
   const getItemTotal = () => {
