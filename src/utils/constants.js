@@ -11,8 +11,10 @@ export const MENU_API =
 export const ResDetails_URL =
   "https://www.swiggy.com/dapi/menu/v4/full?lat=12.9351929&lng=77.62448069999999&menuId=440377";
 
-  export const HELP_URL = "https://www.swiggy.com/dapi/support/issues/faq?"
+  export const HELP_URL = "https://www.swiggy.com/mapi/support/v3/issues/faq?loadConversations=true"
 
 /* Shimmer - Number of cards & items to be displayed */
   export const SHIMMER_RES_CARDS_COUNT = 8;
 export const SHIMMER_MENU_ITEMS_COUNT = 4;
+
+export const PROFILE_IMG="https://ibb.co/LYMs8Sw"

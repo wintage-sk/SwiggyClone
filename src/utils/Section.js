@@ -4,7 +4,7 @@ import React from "react";
 
 
 
-const useSection = ({id, title, description, isVisible, setIsVisible }) => {
+const Section = ({id, title, description, isVisible, setIsVisible }) => {
   
     return (
       
@@ -22,4 +22,4 @@ const useSection = ({id, title, description, isVisible, setIsVisible }) => {
       </div>
     );
   };
-  export default useSection;
+  export default Section;

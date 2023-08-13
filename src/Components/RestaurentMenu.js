@@ -8,7 +8,6 @@ import RestaurantCategory from "./RestaurantCategory";
 // import { CDN_URL } from "../utils/constants";
 // import { MENU_API } from "../utils/constants"
 import { useSelector } from "react-redux";
-import useItemTotal from "../utils/useItemTotal";
 import CartItemQuantity from "./CartItemQuantity";
   // import CartEmpty from "./CartEmpty";
 import { Link } from "react-router-dom";
@@ -35,7 +34,6 @@ const RestaurentMenu = () => {
    const resInfo =useRestaurantMenu(resID);
    const cartItems = useSelector((store) => store.cart.items);
   // get total price for cart items
-  const getItemTotal = useItemTotal();
    const [showIndex, setShowIndex] = useState(null);
 console.log(resInfo);
 //  const { name, cuisines, costForTwoMessage } =
@@ -57,7 +55,7 @@ console.log(resInfo);
    (
 
     <div className="container">
-      <div className="flex basis-full h-60 justify-evenly items-center bg-blue-dark text-gray p-8">
+      <div className="flex w-full h-60 justify-evenly items-center bg-blue-900 text-white p-8">
         <img
           className="w-[254px] h-[165px] mob:w-[130px] mob:[81px]"
           src={ "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + resInfo?.cards[0]?.card?.card?.info?.cloudinaryImageId}
@@ -76,15 +74,12 @@ console.log(resInfo);
               <span>{resInfo?.cards[0]?.card?.card?.info?.avgRating}</span>
             </div>
             <div>|</div>
-            <div>{resInfo?.cards[0]?.card?.card?.info?.locality
-}</div>
-            <div>|</div>
             <div>{resInfo?.cards[0]?.card?.card?.info?.costForTwoMessage}</div>
           </div>
         </div>
       </div>
 
-    <div className="flex justify-center items-center sm:flex-col xsm:flex-col mob:flex-col" >
+    <div className="  flex justify-center items-center flex-col" >
     
         {/* <h1 className="font-bold my-6 text-2xl">{resInfo?.cards[0]?.card?.card?.info.name}</h1>
         <p className="font-bold text-lg">
@@ -99,58 +94,8 @@ console.log(resInfo);
     setShowIndex={() => setShowIndex(index)}/>)}  
      
   </div> 
-  
-  {/* <div className="basis-[30%]">
-          {Object.values(cartItems).length > 0 ? (
-            <div className=" card-container basis-[298px] p-10">
-              <h1 className="font-bold text-lg mt-2.5">Cart</h1>
-
-              <p className="text-gray-count">
-                {Object.values(cartItems).length} item
-              </p>
-
-              {Object.values(cartItems).map((item) => {
-                return (
-                  <div className="flex items-center mt-2 justify-between">
-                    <p className="w-40 text-sm">{item.name}</p>
-                    <div className="w-30 px-5">
-                      <CartItemQuantity items={item} key={item.id} />
-                    </div>
-
-                    <p className="w-10 font-thin text-sm">
-                      {"₹ " + (item.price / 100) * item.quantity}
-                    </p>
-                  </div>
-                );
-              })}
-              <div className="border border-gray my-4"></div>
-              <div className="flex justify-between mt-4">
-                <p className="text-sm text-bio ">Sub Total</p>
-                {"₹ " + getItemTotal()}
-              </div>
-              <div className="flex justify-center mt-10">
-                <Link to="/cart">
-                  {" "}
-                  <button className="bg-yellow px-4 py-2 text-blue-dark hover:drop-shadow-lg backdrop-blur">
-                    {" "}
-                    CHECKOUT
-                  </button>
-                </Link>
-              </div>
-            </div>
-          ) : (
-            <div className="card-container w-[348px]">
-              
-               <CartEmpty
-                text={
-                  "Good food is always cooking! Go ahead, order some yummy items from the menu."
-                }
-              /> 
-            </div>
-          )}
-  </div> */}
   </div>
-  
+    
   );
 
  }

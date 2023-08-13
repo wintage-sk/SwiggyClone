@@ -12,8 +12,8 @@ const RestaurantCategory = ({data, showItems, setShowIndex}) => {
     }
    
   return (
-    <div  className="w-6/12 p-5">
-    <div className="flex  justify-between" onClick={handleClick} >
+    <div  className=" w-9/12 p-5">
+    <div className="flex justify-between items-center" onClick={handleClick} >
         <h3
          className="font-bold text-lg cursor-pointer">
             {data.title} ({data.itemCards.length})
@@ -24,7 +24,7 @@ const RestaurantCategory = ({data, showItems, setShowIndex}) => {
           <span onClick={handleClick} className="cursor-pointer">⬇️</span>
         )}
     </div>
-    {isVisible&&showItems && <div> {data.itemCards.map((item)=> (<ListItem key ={item.id} items={item.card.info }/>))}</div>
+    {isVisible&&showItems && <div className="flex flex-col " > {data.itemCards.map((item)=> (<ListItem key ={item.id} items={item.card.info }/>))}</div>
 }
     
     </div>
